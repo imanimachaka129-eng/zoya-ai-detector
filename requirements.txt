@@ -1,6 +1,7 @@
 flask>=3.0
 reportlab>=4.0
 python-docx>=1.1
+gunicorn>=22.0
 # Optional but recommended: enables the GPT-2 perplexity signal (much stronger detection, English only)
 # torch
 # transformers

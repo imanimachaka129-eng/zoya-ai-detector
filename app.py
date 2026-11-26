@@ -1,4 +1,5 @@
 import io
+import os
 import re
 import zipfile
 import xml.etree.ElementTree as ET
@@ -404,4 +405,7 @@ def api_humanize():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5000)
+    # Local: python app.py   (debug on).  Production: use gunicorn (see Procfile).
+    app.run(debug=os.environ.get("FLASK_DEBUG", "1") == "1",
+            host=os.environ.get("HOST", "127.0.0.1"),
+            port=int(os.environ.get("PORT", 5000)))
